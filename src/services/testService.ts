@@ -3,19 +3,34 @@ import { getRepository } from "typeorm";
 import Test from "../entities/Test";
 
 export async function getTests() {
-  const tests = await getRepository(Test).find({select: ["id", "pdf"], relations: ["professor"] });
+  try{
+    const tests = await getRepository(Test).find({select: ["id", "pdf"], relations: ["professor"] });
 
-  return tests;
+    return tests;
+  }catch(e){
+    console.log(e)
+  }
+
 }
 
 export async function getProfessorTests(id: number) {
-  const tests = await getRepository(Test).find({ select: ["id", "pdf"], where: { professorId: id }, relations: ["semester", "discipline", "category"] });
+  try{
+    const tests = await getRepository(Test).find({ select: ["id", "pdf"], where: { professorId: id }, relations: ["semester", "discipline", "category"] });
 
-  return tests;
+    return tests;
+  } catch(e){
+
+  }
+
 }
 
 export async function getDisciplineTests(id: number) {
-  const tests = await getRepository(Test).find({ select: ["id", "pdf"], where: { disciplineId: id }, relations: ["semester", "professor", "category"] });
+  try{
+    const tests = await getRepository(Test).find({ select: ["id", "pdf"], where: { disciplineId: id }, relations: ["semester", "professor", "category"] });
 
-  return tests;
+    return tests;
+  }catch(e){
+
+  }
+
 }
