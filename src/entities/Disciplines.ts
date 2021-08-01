@@ -1,7 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from "typeorm";
 import Test from './Test'
 import Period from './Periods'
-import Category from './Categories'
 
 @Entity('disciplines')
 export default class Discipline {

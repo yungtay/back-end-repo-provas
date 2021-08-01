@@ -9,6 +9,5 @@ export default class Period {
   @Column()
   name: string;
 
-  @OneToMany(() => Discipline, discipline => discipline.period)
-  discipline: Discipline[]
+
 }

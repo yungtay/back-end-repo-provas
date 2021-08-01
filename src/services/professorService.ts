@@ -1,5 +1,4 @@
 import { getRepository, Raw } from "typeorm";
-
 import Professor from "../entities/Professors";
 
 export async function getProfessors() {

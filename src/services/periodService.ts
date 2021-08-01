@@ -1,5 +1,4 @@
 import { getRepository } from "typeorm";
-
 import Period from "../entities/Periods";
 
 export async function getPeriods() {
