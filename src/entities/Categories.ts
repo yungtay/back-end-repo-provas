@@ -11,4 +11,5 @@ export default class Category {
 
   @OneToMany(() => Test, tests => tests.id)
   tests: Test[];
+
 }

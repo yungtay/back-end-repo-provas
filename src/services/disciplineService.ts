@@ -17,6 +17,7 @@ export async function getDisciplines () {
         delete discipline.tests
       }
     });
+    console.log(disciplines)
     return disciplines;
 
   } catch(e) {

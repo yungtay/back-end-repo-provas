@@ -11,6 +11,7 @@ import * as disciplineController from "./controllers/disciplineController"
 import * as testController from "./controllers/testController"
 import * as categoryController from "./controllers/categoryController"
 import * as periodController from "./controllers/periodController"
+import * as semesterController from './controllers/semesterController'
 
 const app = express();
 app.use(cors());
@@ -25,6 +26,7 @@ app.get("/tests/discipline/:id", testController.getDisciplineTests);
 
 app.get("/categories", categoryController.getCategories);
 app.get("/periods", periodController.getPeriods);
+app.get("/semesters", semesterController.getSemesters);
 
 
 export async function init () {
