@@ -1,5 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from "typeorm";
 import Test from './Test'
+import Period from './Periods'
+import Category from './Categories'
 
 @Entity('disciplines')
 export default class Discipline {
@@ -9,6 +11,14 @@ export default class Discipline {
   @Column()
   name: string;
 
-  @OneToMany(() => Test, tests => tests.id)
+  @Column()
+  periodId: number;
+
+  @ManyToOne(() => Period, periods => periods.id)
+  period: Period;
+
+  @OneToMany(() => Test, tests => tests.discipline)
   tests: Test[];
+
+  numberTests: number;
 }

@@ -10,6 +10,7 @@ import * as professorController from "./controllers/professorController"
 import * as disciplineController from "./controllers/disciplineController"
 import * as testController from "./controllers/testController"
 import * as categoryController from "./controllers/categoryController"
+import * as periodController from "./controllers/periodController"
 
 const app = express();
 app.use(cors());
@@ -20,7 +21,11 @@ app.get("/professors", professorController.getProfessors);
 app.get("/disciplines", disciplineController.getDisciplines);
 app.get("/tests", testController.getTests);
 app.get("/tests/professor/:id", testController.getProfessorTests);
+app.get("/tests/discipline/:id", testController.getDisciplineTests);
+
 app.get("/categories", categoryController.getCategories);
+app.get("/periods", periodController.getPeriods);
+
 
 export async function init () {
   await connectDatabase();

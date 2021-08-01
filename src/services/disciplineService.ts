@@ -1,8 +1,16 @@
 import { getRepository } from "typeorm";
 
-import Disciplines from "../entities/Disciplines";
+import Discipline from "../entities/Disciplines";
 
 export async function getDisciplines () {
-  const disciplines = await getRepository(Disciplines).find();
+  const disciplines = await getRepository(Discipline).find({ relations: ["tests"] });
+  disciplines.forEach((discipline, index) => {
+    if (!discipline.tests.length) {
+      disciplines.splice(index)
+    } else {
+      discipline.numberTests = discipline.tests.length
+      delete discipline.tests
+    }
+  });
   return disciplines;
 }

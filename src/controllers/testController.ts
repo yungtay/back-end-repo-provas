@@ -22,3 +22,14 @@ export async function getProfessorTests (req: Request, res: Response) {
     res.sendStatus(500);
   }
 }
+
+export async function getDisciplineTests (req: Request, res: Response) {
+  try {
+    const { id }  = req.params
+    const tests = await userService.getDisciplineTests(parseInt(id));
+    res.send(tests);
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+  }
+}
