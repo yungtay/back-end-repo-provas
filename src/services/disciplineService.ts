@@ -1,13 +1,15 @@
 import { getRepository } from "typeorm";
 import Discipline from "../entities/Disciplines";
+import DisciplineProfessor from "../entities/DisciplinesProfessors"
 
-export async function getDisciplines () {
-  try{
+export async function getDisciplines() {
+  try {
     const disciplines = await getRepository(Discipline).createQueryBuilder('disciplines')
-    .leftJoinAndSelect('disciplines.period', 'periods')
-    .leftJoinAndSelect('disciplines.tests', 'tests')
-    .orderBy("disciplines.name", 'ASC')
-    .getMany()
+      .leftJoinAndSelect('disciplines.period', 'periods')
+      .leftJoinAndSelect('disciplines.tests', 'tests')
+      .leftJoinAndSelect('disciplines.disciplineProfessor', 'disciplinesProfessors')
+      .orderBy("disciplines.name", 'ASC')
+      .getMany()
 
     disciplines.forEach((discipline, index) => {
       if (!discipline.tests.length) {
@@ -17,11 +19,24 @@ export async function getDisciplines () {
         delete discipline.tests
       }
     });
-    console.log(disciplines)
     return disciplines;
 
-  } catch(e) {
+  } catch (e) {
     console.log(e)
   }
+}
 
+export async function getDisciplinesProfessors(id: number) {
+  try {
+    const disciplinesProfessors = await getRepository(DisciplineProfessor).createQueryBuilder('disciplinesProfessors')
+      .select(["disciplinesProfessors.id"])
+      .leftJoinAndSelect('disciplinesProfessors.professor', 'professors')
+      .where("disciplinesProfessors.disciplineId = :disciplineId", { disciplineId: id })
+      .getMany()
+
+    return disciplinesProfessors;
+
+  } catch (e) {
+    console.log(e)
+  }
 }

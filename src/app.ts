@@ -27,9 +27,12 @@ app.get("/tests/discipline/:id", testController.getDisciplineTests);
 app.get("/categories", categoryController.getCategories);
 app.get("/periods", periodController.getPeriods);
 app.get("/semesters", semesterController.getSemesters);
+app.get("/disciplinesProfessors/:id", disciplineController.getDisciplinesProfessors);
+
+app.post("/tests", testController.insertTests)
 
 
-export async function init () {
+export async function init() {
   await connectDatabase();
 }
 

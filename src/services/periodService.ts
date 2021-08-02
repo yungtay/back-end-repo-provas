@@ -5,9 +5,7 @@ export async function getPeriods() {
     try {
         const categories = await getRepository(Period).find();
         return categories;
-
     } catch (e) {
         console.log(e)
     }
-
 }

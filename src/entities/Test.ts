@@ -17,13 +17,13 @@ export default class Test {
 
   @Column()
   categoryId: number;
-  
+
   @ManyToOne(() => Category, categories => categories.id)
   category: number;
 
   @Column()
   professorId: number;
-  
+
   @ManyToOne(() => Professor, professors => professors.id)
   professor: number;
 
@@ -32,7 +32,7 @@ export default class Test {
 
   @ManyToOne(() => Discipline, disciplines => disciplines.id)
   discipline: number;
-  
+
   @Column()
   pdf: string;
 }

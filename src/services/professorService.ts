@@ -1,9 +1,8 @@
-import { getRepository, Raw } from "typeorm";
+import { getRepository } from "typeorm";
 import Professor from "../entities/Professors";
 
 export async function getProfessors() {
   try {
-
     const professors = await getRepository(Professor).find({ relations: ["tests"] });
     professors.forEach((professor, index) => {
       if (!professor.tests.length) {
@@ -17,5 +16,4 @@ export async function getProfessors() {
   } catch (e) {
     console.log(e)
   }
-
 }
