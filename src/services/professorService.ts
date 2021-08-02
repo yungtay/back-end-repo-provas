@@ -3,7 +3,7 @@ import Professor from "../entities/Professors";
 
 export async function getProfessors() {
   try {
-    const professors = await getRepository(Professor).find({ relations: ["tests"] });
+    const professors = await getRepository(Professor).find({ relations: ["tests"], order: { name:"ASC"} });
     professors.forEach((professor, index) => {
       professor.numberTests = professor.tests.length
       delete professor.tests
