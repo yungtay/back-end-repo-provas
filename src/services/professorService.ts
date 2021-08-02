@@ -5,12 +5,8 @@ export async function getProfessors() {
   try {
     const professors = await getRepository(Professor).find({ relations: ["tests"] });
     professors.forEach((professor, index) => {
-      if (!professor.tests.length) {
-        professors.splice(index)
-      } else {
-        professor.numberTests = professor.tests.length
-        delete professor.tests
-      }
+      professor.numberTests = professor.tests.length
+      delete professor.tests
     });
     return professors
   } catch (e) {

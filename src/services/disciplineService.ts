@@ -11,13 +11,9 @@ export async function getDisciplines() {
       .orderBy("disciplines.name", 'ASC')
       .getMany()
 
-    disciplines.forEach((discipline, index) => {
-      if (!discipline.tests.length) {
-        disciplines.splice(index)
-      } else {
+    disciplines.forEach((discipline) => {
         discipline.numberTests = discipline.tests.length
         delete discipline.tests
-      }
     });
     return disciplines;
 
