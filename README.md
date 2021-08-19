@@ -33,9 +33,11 @@ Dessa forma, o aplicativo proporciona a melhor percepção do usuário sobre o s
 >`npm i`
 
 3. Criar um banco de dados
->`sudo su postgres`
->`psql postgres`
->`CREATE DATABASE nome_database`
+```
+sudo su postgres
+psql postgres
+CREATE DATABASE nome_database
+```
 
 4. Inserir as informações do banco de dados do arquivo .env
 >`DATABASE_URL=postgres://postgres:PASSWORD@localhost:5432/nome_database`
