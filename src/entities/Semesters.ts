@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
-import Test from './Test'
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import Test from './Test';
 
 @Entity('semesters')
 export default class Semester {
@@ -9,6 +9,6 @@ export default class Semester {
   @Column()
   name: string;
 
-  @OneToMany(() => Test, tests => tests.id)
+  @OneToMany(() => Test, (tests) => tests.id)
   tests: Test[];
 }

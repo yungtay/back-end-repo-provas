@@ -1,11 +1,11 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
 
-import * as periodService from "../services/periodService";
+import * as periodService from '../services/periodService';
 
 export async function getPeriods(req: Request, res: Response) {
   try {
-    const categories = await periodService.getPeriods();
-    res.send(categories);
+    const periods = await periodService.getPeriods();
+    res.send(periods);
   } catch (err) {
     console.error(err);
     res.sendStatus(500);

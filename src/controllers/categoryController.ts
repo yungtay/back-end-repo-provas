@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
 
-import * as categoryService from "../services/categoryService";
+import * as categoryService from '../services/categoryService';
 
 export async function getCategories(req: Request, res: Response) {
   try {

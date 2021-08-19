@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
 @Entity('periods')
 export default class Period {
@@ -7,6 +7,4 @@ export default class Period {
 
   @Column()
   name: string;
-
-
 }

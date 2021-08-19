@@ -1,7 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from "typeorm";
-import Test from './Test'
-import Period from './Periods'
-import DisciplineProfessor from './DisciplinesProfessors'
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  ManyToOne,
+} from 'typeorm';
+import Test from './Test';
+import Period from './Periods';
+import DisciplineProfessor from './DisciplinesProfessors';
 
 @Entity('disciplines')
 export default class Discipline {
@@ -14,14 +20,17 @@ export default class Discipline {
   @Column()
   periodId: number;
 
-  @ManyToOne(() => Period, periods => periods.id)
+  @ManyToOne(() => Period, (periods) => periods.id)
   period: Period;
 
-  @OneToMany(() => Test, tests => tests.discipline)
+  @OneToMany(() => Test, (tests) => tests.discipline)
   tests: Test[];
 
-  @OneToMany(() => DisciplineProfessor, disciplineProfessors => disciplineProfessors.discipline)
-  disciplineProfessor: DisciplineProfessor[]
+  @OneToMany(
+    () => DisciplineProfessor,
+    (disciplineProfessors) => disciplineProfessors.discipline
+  )
+  disciplineProfessor: DisciplineProfessor[];
 
   numberTests: number;
 }

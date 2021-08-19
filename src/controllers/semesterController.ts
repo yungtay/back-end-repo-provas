@@ -1,8 +1,8 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
 
-import * as semesterService from "../services/semesterService";
+import * as semesterService from '../services/semesterService';
 
-export async function getSemesters (req: Request, res: Response) {
+export async function getSemesters(req: Request, res: Response) {
   try {
     const semesters = await semesterService.getSemesters();
     res.send(semesters);

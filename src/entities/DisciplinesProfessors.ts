@@ -1,6 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
-import Discipline from './Disciplines'
-import Professor from './Professors'
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import Discipline from './Disciplines';
+import Professor from './Professors';
 
 @Entity('disciplinesProfessors')
 export default class DisciplineProfessor {
@@ -10,13 +10,12 @@ export default class DisciplineProfessor {
   @Column()
   disciplineId: number;
 
-  @ManyToOne(() => Discipline, disciplines => disciplines.id)
+  @ManyToOne(() => Discipline, (disciplines) => disciplines.id)
   discipline: Discipline[];
 
   @Column()
   professorId: number;
 
-  @ManyToOne(() => Professor, professors => professors.id)
+  @ManyToOne(() => Professor, (professors) => professors.id)
   professor: Professor[];
-
 }
