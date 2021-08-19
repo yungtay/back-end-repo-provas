@@ -41,6 +41,7 @@ CREATE DATABASE nome_database
 
 4. Inserir as informações do banco de dados do arquivo .env
 >`DATABASE_URL=postgres://postgres:PASSWORD@localhost:5432/nome_database`
+
 Onde o PASSWORD é a senha configurada no seu Postgres e nome_database o nome do banco de dados criado no passo 3.
 
 5. Rodar as migrações do Typeorm
